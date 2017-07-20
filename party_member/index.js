@@ -93,7 +93,7 @@ function fillDestFile(group, memberInfos) {
 
     for (let memberInfo of memberInfos) {
         let filePath = path.join(distPath, memberInfo.name + ".xlsx")
-        fs.readFile(path.join(__dirname, 'doc', 'template.xlsx'), function (err, data) {
+        fs.readFile(path.join(__dirname, 'private_doc', 'template.xlsx'), function (err, data) {
 
             var template = new XlsxTemplate(data);
 
