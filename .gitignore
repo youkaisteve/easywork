@@ -1,0 +1,12 @@
+de_modules
+logs
+dist
+.tern-project
+.idea
+.settings
+.vscode
+gen
+*.swp
+.DS_Store
+uploads
+caches
