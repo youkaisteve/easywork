@@ -6,6 +6,8 @@ import _ from 'lodash'
 
 import dataMapping from './data_mapping'
 
+let dateFormat = require('dateformat')
+let dateFormatString = "yyyy年m月d日"
 export default function run(filePath) {
     extractSourceFile(filePath)
 }
@@ -42,21 +44,22 @@ function translate(memberInfo) {
     newMemberInfo.name = memberInfo["姓名"].trim()
     newMemberInfo.idcardNumber = memberInfo["身份证号码"].trim()
     newMemberInfo.gender = memberInfo["性别"].trim()
-    newMemberInfo.nation = memberInfo["民族"].trim()
+    newMemberInfo.nation = dataMapping.nations[memberInfo["民族"].trim()]
     newMemberInfo.native = memberInfo["籍贯"].trim()
     newMemberInfo.isTaiWan = memberInfo["是否台湾省籍"].trim()
-    newMemberInfo.birthday = memberInfo["出生日期"].trim()
+    newMemberInfo.birthday = dateFormat(memberInfo["出生日期"].trim(),dateFormatString)
     //学历
-    newMemberInfo.diploma = dataMapping.diploma[memberInfo["学历"]]
+    newMemberInfo.diploma = dataMapping.diploma[memberInfo["学历"].trim()]
 
     newMemberInfo.partyType = memberInfo["人员类别"].trim()
     newMemberInfo.org = memberInfo["所在党组织"].trim()
-    newMemberInfo.joinPartyTime = memberInfo["入党时间"].trim()
-    newMemberInfo.formalTime = memberInfo["转正时间"].trim()
+    newMemberInfo.branchParty = dataMapping.fixedValues.branchParty
+    newMemberInfo.joinPartyTime = dateFormat(memberInfo["入党时间"].trim(),dateFormatString)
+    newMemberInfo.formalTime = dateFormat(memberInfo["转正时间"].trim(),dateFormatString)
     //岗位
-    newMemberInfo.career = dataMapping.career[memberInfo["工作岗位"]]
+    newMemberInfo.career = dataMapping.career[memberInfo["工作岗位"].trim()]
 
-    newMemberInfo.workingTime = memberInfo["参加工作日期"].trim()
+    newMemberInfo.workingTime = dateFormat(memberInfo["参加工作日期"].trim(),dateFormatString)
     newMemberInfo.homeAddress = memberInfo["家庭住址"].trim()
 
     let phoneNumber = memberInfo["联系电话"].trim()
