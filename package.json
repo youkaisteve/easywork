@@ -4,6 +4,7 @@
   "description": "a pack of tools helping people work easyly",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,19 @@
   "bugs": {
     "url": "https://github.com/youkaisteve/easywork/issues"
   },
-  "homepage": "https://github.com/youkaisteve/easywork#readme"
+  "homepage": "https://github.com/youkaisteve/easywork#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "xlsx": "^0.10.8",
+    "xlsx-template": "0.0.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1"
+  }
 }
