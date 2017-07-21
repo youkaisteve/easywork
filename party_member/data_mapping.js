@@ -140,7 +140,7 @@ let nations = {
 }
 let fixedValues = {
     distinctNumber: "028",
-    phone: "85030354",
+    phone: 85030354,
     branchParty: "中共成都市武侯区金花桥街道新苗社区委员会"
 }
 
