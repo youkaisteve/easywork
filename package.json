@@ -4,7 +4,8 @@
   "description": "a pack of tools helping people work easyly",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js",
+    "pm-sperate": "export type=separate && babel-node index.js",
+    "pm-summary": "export type=summary  && babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
